@@ -3,6 +3,7 @@
 #include "matrix.h"
 
 int  main(){
+	/*
 	printf("Hello\n");
 	int vector[3];
 	vector[0] = 1;
@@ -18,8 +19,27 @@ int  main(){
 	output[1] = 0;
 	output[2] = 0;
 	sum(vector,vector2,3,p);
-    printVector(vector,3);
-	printVector(p,3);
+   	printVector(vector,3);
+	printVector(p,3);*/
+
+	int matrix1[2][3] = {
+		{1,2,3},
+		{1,1,1}
+	};
+
+	printf("%ld",sizeof(matrix1[0])/sizeof(matrix1[0][0]));
+	printMatrix(2,3,matrix1);
+
+
+	/*
+	matrix2[0][0] = 2;
+	matrix2[0][1] = 1;
+	matrix2[0][2] = 3;
+	matrix2[1][0] = 2;
+	matrix2[1][1] = 2;
+	matrix2[1][2] = 2;
+
+	sumMatrices(matrix1,matrix2,2,3,outputMatrix); */
 
 
 	return 0;

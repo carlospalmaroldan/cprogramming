@@ -27,9 +27,20 @@ int  main(){
 		{1,1,1}
 	};
 
+	int matrix2[2][3] = {
+		{2,1,3},
+		{2,2,2}
+	};
+
+	int outputMatrix[2][3];
+
 	printf("%ld",sizeof(matrix1[0])/sizeof(matrix1[0][0]));
 	printMatrix(2,3,matrix1);
 
+	sumMatrices(2,3,matrix1,matrix2,outputMatrix);
+
+	printMatrix(2,3,outputMatrix);
+	
 
 	/*
 	matrix2[0][0] = 2;

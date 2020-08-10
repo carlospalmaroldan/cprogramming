@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "functions.h"
 #include "matrix.h"
+#include "node.h"
 
 int  main(){
 	/*
@@ -20,7 +21,7 @@ int  main(){
 	output[2] = 0;
 	sum(vector,vector2,3,p);
    	printVector(vector,3);
-	printVector(p,3);*/
+	printVector(p,3);
 
 	int matrix1[2][3] = {
 		{1,2,3},
@@ -49,7 +50,37 @@ int  main(){
 	
 	int outputProduct[2][2];
 	multiplyMatrices(2,3,2,matrix1,matrix3,outputProduct);
-	printMatrix(2,2,outputProduct);
+	printMatrix(2,2,outputProduct); */
+
+	struct Node secondLeft ={
+		0,
+		NULL,
+		NULL
+	};
+
+	struct Node left = {
+		1,
+		&secondLeft,
+		NULL
+	};
+
+	struct Node right = {
+		4,
+		NULL,
+		NULL
+	};
+	
+	
+	struct Node root = {
+		2,
+		&left,
+		&right
+	};
+	
+
+	printTree(&root);
+
+	
 
 	return 0;
 }

@@ -32,6 +32,12 @@ int  main(){
 		{2,2,2}
 	};
 
+	int matrix3[3][2] = {
+		{1,2},
+		{1,3},
+		{3,2}
+	};
+
 	int outputMatrix[2][3];
 
 	printf("%ld",sizeof(matrix1[0])/sizeof(matrix1[0][0]));
@@ -41,17 +47,9 @@ int  main(){
 
 	printMatrix(2,3,outputMatrix);
 	
-
-	/*
-	matrix2[0][0] = 2;
-	matrix2[0][1] = 1;
-	matrix2[0][2] = 3;
-	matrix2[1][0] = 2;
-	matrix2[1][1] = 2;
-	matrix2[1][2] = 2;
-
-	sumMatrices(matrix1,matrix2,2,3,outputMatrix); */
-
+	int outputProduct[2][2];
+	multiplyMatrices(2,3,2,matrix1,matrix3,outputProduct);
+	printMatrix(2,2,outputProduct);
 
 	return 0;
 }

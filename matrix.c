@@ -1,13 +1,7 @@
 #include "matrix.h"
 #include <stdio.h>
 
-int* sum(int *p1, int *p2, int n, int* output){ 
-   int i;
-   for(i = 0; i< n; i++){
-    *(output+i) = *(p1+i) + *(p2+i);
-   }
-   return output;
-}
+
 
 void sumMatrices(int m, int n, int a[m][n], int b[m][n], int output[m][n]){
   int i;

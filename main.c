@@ -2,10 +2,10 @@
 #include "functions.h"
 #include "matrix.h"
 #include "node.h"
+#include "twosumtarget.h"
 
 int  main(){
-	/*
-	printf("Hello\n");
+/*	printf("Hello\n");
 	int vector[3];
 	vector[0] = 1;
 	vector[1] = 2;
@@ -22,7 +22,7 @@ int  main(){
 	sum(vector,vector2,3,p);
    	printVector(vector,3);
 	printVector(p,3);
-
+/*
 	int matrix1[2][3] = {
 		{1,2,3},
 		{1,1,1}
@@ -54,7 +54,7 @@ int  main(){
 	
 
 	
-
+/*
 	int arrayToSwap2[5] = {5,6,7,8,9};
 	int arrayToSwap1[5] = {1,2,3,4,5};
 
@@ -95,8 +95,13 @@ int  main(){
 	
 
 	printTree(&root);
+*/
 
-	
+
+	int test[4]= {4,2,1,3};
+	int len = sizeof(test) / sizeof(test[0]);
+
+    getIndices(test,len, 2);
 
 	return 0;
 }

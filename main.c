@@ -98,10 +98,13 @@ int  main(){
 */
 
 
-	int test[4]= {4,2,1,3};
+	int test[4]= {4,2,1,6};
 	int len = sizeof(test) / sizeof(test[0]);
 
-    getIndices(test,len, 2);
+    struct indices output = getIndices(test,len, 6);
+
+	printf("%i", output.index1);
+	printf("%i", output.index2);
 
 	return 0;
 }

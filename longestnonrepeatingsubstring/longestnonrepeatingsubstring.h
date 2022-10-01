@@ -1,0 +1,1 @@
+char* findLongestSubstring(char input[]);

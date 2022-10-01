@@ -1,11 +1,8 @@
 #include <stdio.h>
-#include "functions.h"
-#include "matrix.h"
-#include "node.h"
-#include "twosumtarget.h"
+#include "test.h"
 
 int  main(){
-/*	printf("Hello\n");
+/*	
 	int vector[3];
 	vector[0] = 1;
 	vector[1] = 2;
@@ -52,8 +49,6 @@ int  main(){
 	multiplyMatrices(2,3,2,matrix1,matrix3,outputProduct);
 	printMatrix(2,2,outputProduct); */
 	
-
-	
 /*
 	int arrayToSwap2[5] = {5,6,7,8,9};
 	int arrayToSwap1[5] = {1,2,3,4,5};
@@ -97,7 +92,7 @@ int  main(){
 	printTree(&root);
 */
 
-
+/*
 	int test[4]= {4,2,1,6};
 	int len = sizeof(test) / sizeof(test[0]);
 
@@ -105,6 +100,13 @@ int  main(){
 
 	printf("%i", output.index1);
 	printf("%i", output.index2);
+	*/
 
-	return 0;
+
+testAddToList();
+printf("Hello World, learning the beauty of the c programming language\n");
+
+
+
+return 0;
 }

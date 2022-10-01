@@ -1,19 +1,31 @@
-#include "node.h"
 #include <stdio.h>
+#include "node.h"
 
-void printNode(struct Node* node){
-    printf("%i",node->value);
+void printList(struct list listToPrint){
+    printf("%i", listToPrint.head->value.value);
 }
 
-//struct members are not null when initializing
-void printTree(struct Node* node){
- 
-  if(node->left){
-    printTree(node->left);
-  }
-    printf("%i",node->value);
-  if(node->right){
-      printTree(node->right);
-  }
+void add(struct element elementToAdd, struct list* listToModify){
+    if(isEmpty(*listToModify)){
+        struct node head;
+        head.value = elementToAdd;
+        listToModify->head = &head;
+
+    } else {
+
+        struct node* oldHead = listToModify->head;
+        struct node head;
+        head.value = elementToAdd;
+        listToModify->head = &head;
+        head.next = oldHead;
+    }
 }
 
+
+bool isEmpty(struct list listToInspect){
+        if( listToInspect.head == NULL){
+            return true;
+        } else {
+            return false;
+        }
+}

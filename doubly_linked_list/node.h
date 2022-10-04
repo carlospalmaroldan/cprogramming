@@ -27,3 +27,4 @@ struct list{
 bool isEmpty(struct list listToInspect);
 void add(struct element elementToAdd, struct list* listToModify);
 void printList(struct list listToPrint);
+struct node* pop(struct list* listToModify);

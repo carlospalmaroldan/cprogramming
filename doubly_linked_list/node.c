@@ -44,3 +44,11 @@ bool isEmpty(struct list listToInspect){
             return false;
         }
 }
+
+//TODO free the memory space that was being used by the head 
+struct node* pop(struct list* listToModify){
+
+    struct node* output = listToModify -> head;
+    listToModify->head = listToModify -> head->next;
+    return output;
+}

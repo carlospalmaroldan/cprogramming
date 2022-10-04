@@ -2,22 +2,37 @@
 #include "node.h"
 
 void printList(struct list listToPrint){
-    printf("%i", listToPrint.head->value.value);
+    struct node* currentNode;
+    currentNode = listToPrint.head;
+    int counter = 0;
+    while(  currentNode != NULL){
+        
+        int value = currentNode->value.value;
+        printf("%i\n", value);
+        currentNode = currentNode->next;
+        counter ++;
+    }
 }
 
+/*This list will be used as a stack, meaning that all new elements added to it will be added to the head*/
 void add(struct element elementToAdd, struct list* listToModify){
     if(isEmpty(*listToModify)){
-        struct node head;
-        head.value = elementToAdd;
+        struct node head = {elementToAdd, NULL, NULL};
+   
         listToModify->head = &head;
 
     } else {
+        
+        struct node* oldHeadPtr = malloc(sizeof(struct node));
+        oldHeadPtr->value = listToModify->head->value;
+        oldHeadPtr->next = listToModify -> head->next;
+        oldHeadPtr->previous =  listToModify -> head->previous;
+        
 
-        struct node* oldHead = listToModify->head;
-        struct node head;
-        head.value = elementToAdd;
-        listToModify->head = &head;
-        head.next = oldHead;
+        struct node newHead={elementToAdd, oldHeadPtr, NULL};
+      
+        listToModify->head = &newHead;
+  
     }
 }
 

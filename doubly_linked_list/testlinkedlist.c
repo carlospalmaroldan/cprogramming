@@ -9,11 +9,15 @@ void testAddToList(){
     struct element value2;
     value2.value = 2;
 
+    struct element value3;
+    value3.value = 3;
+
     struct list listToTest= {NULL};
     struct list* listToTestPtr = &listToTest;
 
     add(value1, listToTestPtr);
-    printList(*listToTestPtr);
     add(value2, listToTestPtr);
+    add(value3, listToTestPtr);
+    printList(*listToTestPtr);
 
 }

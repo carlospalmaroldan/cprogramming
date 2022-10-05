@@ -44,3 +44,22 @@ void testPop(){
     printf("The value of the node popped out is: %i\n", output->value.value);
     printList(*listToTestPtr);
 }
+
+void testPopEmptyList(){
+    struct list listToTest= {NULL};
+    struct list* listToTestPtr = &listToTest;
+    struct node* output = pop(listToTestPtr);
+    printf("The value of the node popped out is: %i\n", output->value.value);
+}
+
+void testPopListWithASingleElement(){
+    struct element value1;
+    value1.value = 1;
+    struct list listToTest= {NULL};
+    struct list* listToTestPtr = &listToTest;
+
+    add(value1, listToTestPtr);
+    struct node* output = pop(listToTestPtr);
+    printf("The value of the node popped out is: %i\n", output->value.value);
+
+}

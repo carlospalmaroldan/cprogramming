@@ -45,10 +45,16 @@ bool isEmpty(struct list listToInspect){
         }
 }
 
-//TODO free the memory space that was being used by the head 
+//TODO write code for an empty list or a list with a single element 
 struct node* pop(struct list* listToModify){
+
+    if(listToModify->head == NULL){
+        return NULL;
+    }
 
     struct node* output = listToModify -> head;
     listToModify->head = listToModify -> head->next;
+    output->next = NULL;
+    output->previous = NULL;
     return output;
 }

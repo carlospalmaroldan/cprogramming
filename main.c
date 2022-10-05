@@ -4,8 +4,7 @@
 int  main(){
 
 
-testPop();
-
+testPopListWithASingleElement();
 
 
 return 0;

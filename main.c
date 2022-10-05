@@ -1,13 +1,9 @@
 #include <stdio.h>
-#include "doubly_linked_list/testlinkedlist.h"
+#include "queue/testqueue.h"
 
 int  main(){
 
-/*testPop();
-testAddToList();
-
-testBigArrayInsertWithValidationLoop();*/
-testBigArrayInsertInvalidPosition();
+testEnqueue();
 
 return 0;
 }

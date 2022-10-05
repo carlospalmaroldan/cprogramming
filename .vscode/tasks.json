@@ -8,7 +8,7 @@
             "args": [
                 "-g",
                 "${file}",
-                "${fileDirname}/doubly_linked_list/*.c",
+                "${fileDirname}/queue/*.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

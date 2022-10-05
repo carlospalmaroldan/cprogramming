@@ -3,11 +3,11 @@
 
 int  main(){
 
-testPop();
+/*testPop();
 testAddToList();
 
-testBigArrayInsertWithValidationLoop();
-
+testBigArrayInsertWithValidationLoop();*/
+testBigArrayInsertInvalidPosition();
 
 return 0;
 }

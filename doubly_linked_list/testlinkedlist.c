@@ -98,6 +98,16 @@ void testBigArrayInsertWithValidationLoop(){
       printf("%i\n", verifiedElement->value);
 }
 
+void testBigArrayInsertInvalidPosition(){
+     struct element bigArray[10000];
+     struct element* verifiedElement= searchWithVerifier(bigArray, 500);
+    if(verifiedElement != NULL){
+     printf("%i\n", verifiedElement->value);
+    } else {
+        printf("search in the big array has returned NULL");
+    }
+}
+
 
 void insertWithVerifier(struct element *bigArrayPtr, struct list* linkedListVerifier, int value, int position){
         struct element elementToInsert = {NULL, value};
@@ -121,7 +131,11 @@ void insertWithVerifier(struct element *bigArrayPtr, struct list* linkedListVeri
 struct element* searchWithVerifier(struct element *bigArrayPtr, int position){
     struct element elementToVerify = *(bigArrayPtr+position);
     struct element* stackAddress = (bigArrayPtr+position) -> pointer;
-    if(stackAddress->pointer == bigArrayPtr+position){
+    //According to Cormen 11-1-4 all positions in the big array should be filled with gibberish
+    //in reality we found the pointer to be NULL if not initalized in the big Array
+    if(stackAddress == NULL){
+        return NULL;
+    }else  if(stackAddress->pointer == bigArrayPtr+position){
         return bigArrayPtr+position;
     } else {
         //Only pointers can be null, and we want to know when the linked list did not point to the address in the array

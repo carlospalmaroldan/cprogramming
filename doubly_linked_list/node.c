@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "node.h"
 
 void printList(struct list listToPrint){
@@ -15,11 +14,12 @@ void printList(struct list listToPrint){
 }
 
 /*This list will be used as a stack, meaning that all new elements added to it will be added to the head*/
-void add(struct element elementToAdd, struct list* listToModify){
+struct node* add(struct element elementToAdd, struct list* listToModify){
     if(isEmpty(*listToModify)){
         struct node head = {elementToAdd, NULL, NULL};
    
         listToModify->head = &head;
+        return &head;
 
     } else {
         
@@ -32,6 +32,7 @@ void add(struct element elementToAdd, struct list* listToModify){
         struct node newHead={elementToAdd, oldHeadPtr, NULL};
       
         listToModify->head = &newHead;
+        return &newHead;
   
     }
 }

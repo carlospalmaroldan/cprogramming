@@ -1,12 +1,12 @@
 //IMPORTANT: IF YOU'RE GONNA USE A STRUCT YOU MUST PROVIDE ITS DEFINITION BEFORE DEFINING
 // ANY FUNCTION USING IT
 #include<stdbool.h>  
-
-
+#include<stdlib.h>
+#include <stdio.h>
 
 struct element
 {
-    int* pointer;
+    struct element* pointer;
     int value;
 };
 
@@ -25,6 +25,6 @@ struct list{
 
 
 bool isEmpty(struct list listToInspect);
-void add(struct element elementToAdd, struct list* listToModify);
+struct node* add(struct element elementToAdd, struct list* listToModify);
 void printList(struct list listToPrint);
 struct node* pop(struct list* listToModify);

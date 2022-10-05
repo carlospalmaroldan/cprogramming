@@ -25,6 +25,6 @@ struct list{
 
 
 bool isEmpty(struct list listToInspect);
-struct node* add(struct element elementToAdd, struct list* listToModify);
+struct node* add(struct element* elementToAdd, struct list* listToModify, struct node* output);
 void printList(struct list listToPrint);
 struct node* pop(struct list* listToModify);

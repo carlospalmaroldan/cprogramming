@@ -14,25 +14,32 @@ void printList(struct list listToPrint){
 }
 
 /*This list will be used as a stack, meaning that all new elements added to it will be added to the head*/
-struct node* add(struct element elementToAdd, struct list* listToModify){
+struct node* add(struct element* elementToAdd, struct list* listToModify, struct node* output){
     if(isEmpty(*listToModify)){
-        struct node head = {elementToAdd, NULL, NULL};
+        output ->value = *elementToAdd;
+        output->next = NULL;
+        output->previous = NULL;
    
-        listToModify->head = &head;
-        return &head;
+        listToModify->head = output;
+       
+        return output;
 
     } else {
-        
+        //copying the old head node
         struct node* oldHeadPtr = malloc(sizeof(struct node));
         oldHeadPtr->value = listToModify->head->value;
         oldHeadPtr->next = listToModify -> head->next;
         oldHeadPtr->previous =  listToModify -> head->previous;
         
+        //creating the new head that points to the old one
+        output ->value = *elementToAdd;
+        output->next = oldHeadPtr;
+        output->previous = NULL;
 
-        struct node newHead={elementToAdd, oldHeadPtr, NULL};
-      
-        listToModify->head = &newHead;
-        return &newHead;
+   
+        //replacing the head in the list
+        listToModify->head = output;
+        return output;
   
     }
 }

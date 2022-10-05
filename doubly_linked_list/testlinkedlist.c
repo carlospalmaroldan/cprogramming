@@ -15,9 +15,10 @@ void testAddToList(){
     struct list listToTest= {NULL};
     struct list* listToTestPtr = &listToTest;
 
-    add(value1, listToTestPtr);
-    add(value2, listToTestPtr);
-    add(value3, listToTestPtr);
+    struct node* newHead = malloc(sizeof(struct node));
+    add(&value1, listToTestPtr, newHead);
+    add(&value2, listToTestPtr, newHead);
+    add(&value3, listToTestPtr, newHead);
     printList(*listToTestPtr);
 
 }
@@ -36,9 +37,10 @@ void testPop(){
     struct list listToTest= {NULL};
     struct list* listToTestPtr = &listToTest;
 
-    add(value1, listToTestPtr);
-    add(value2, listToTestPtr);
-    add(value3, listToTestPtr);
+    struct node* newHead = malloc(sizeof(struct node));
+    add(&value1, listToTestPtr, newHead);
+    add(&value2, listToTestPtr, newHead);
+    add(&value3, listToTestPtr, newHead);
     struct node* output = pop(listToTestPtr);
     
     printf("The value of the node popped out is: %i\n", output->value.value);
@@ -58,7 +60,8 @@ void testPopListWithASingleElement(){
     struct list listToTest= {NULL};
     struct list* listToTestPtr = &listToTest;
 
-    add(value1, listToTestPtr);
+    struct node* newHead = malloc(sizeof(struct node));
+    add(&value1, listToTestPtr, newHead);
     struct node* output = pop(listToTestPtr);
     printf("The value of the node popped out is: %i\n", output->value.value);
 
@@ -79,4 +82,50 @@ void testCormen(){
     printf("%p\n", bigArray[500].pointer);
     printf("%p\n", verifier.pointer);
     printf("%p\n", &bigArray[500]);
+
+    struct list* listPtr = {NULL};
+
+    insertWithVerifier(bigArray, listPtr, 23, 500);
+}
+
+
+void testBigArrayInsertWithValidationLoop(){
+      struct element bigArray[10000];
+      struct list verifier = {NULL};
+      struct list* verifierPtr= &verifier;
+      insertWithVerifier(bigArray, verifierPtr, 23, 500);
+      struct element* verifiedElement= searchWithVerifier(bigArray, 500);
+      printf("%i\n", verifiedElement->value);
+}
+
+
+void insertWithVerifier(struct element *bigArrayPtr, struct list* linkedListVerifier, int value, int position){
+        struct element elementToInsert = {NULL, value};
+
+        //insert element inside the big array
+        *(bigArrayPtr+position)= elementToInsert;
+
+
+        //save the memory position on the stack
+        struct element verifier = { &bigArrayPtr[position], value};
+        struct node* newHead = malloc(sizeof(struct node));
+        struct node* stackAddress = add(&verifier, linkedListVerifier, newHead);
+
+
+
+        //the big array must point to the address in the stack where its own address was stored
+        (bigArrayPtr+position)->pointer = &(stackAddress->value);
+
+}
+
+struct element* searchWithVerifier(struct element *bigArrayPtr, int position){
+    struct element elementToVerify = *(bigArrayPtr+position);
+    struct element* stackAddress = (bigArrayPtr+position) -> pointer;
+    if(stackAddress->pointer == bigArrayPtr+position){
+        return bigArrayPtr+position;
+    } else {
+        //Only pointers can be null, and we want to know when the linked list did not point to the address in the array
+        return NULL;
+    }
+
 }

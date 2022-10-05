@@ -3,8 +3,10 @@
 
 int  main(){
 
+testPop();
+testAddToList();
 
-testCormen();
+testBigArrayInsertWithValidationLoop();
 
 
 return 0;

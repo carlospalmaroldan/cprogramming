@@ -2,3 +2,4 @@
 #include<stdlib.h>
 
 void testEnqueue();
+void testDequeue();

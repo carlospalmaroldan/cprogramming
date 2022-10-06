@@ -3,7 +3,7 @@
 
 int  main(){
 
-testEnqueue();
+testDequeue();
 
 return 0;
 }

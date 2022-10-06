@@ -1,14 +1,15 @@
 #include "queue.h"
 
+//All elements we want to add are added to the rear of the queue
 void enqueue(Queue* queuePtr, Node* nodeToAdd){
     if(queuePtr -> rear !=NULL){
-    nodeToAdd->next = queuePtr->rear;
-    queuePtr -> rear = nodeToAdd;
+        queuePtr->rear->previous = nodeToAdd;
+        nodeToAdd->next = queuePtr->rear;
+        queuePtr -> rear = nodeToAdd;
     } else {
         queuePtr -> rear = nodeToAdd;
         queuePtr -> front = nodeToAdd;
     }
-
 }
 
 void printQueueFromTheRear(Queue* queuePtr){
@@ -19,4 +20,21 @@ void printQueueFromTheRear(Queue* queuePtr){
         printf("%s\n",author);
         newNode = newNode->next;
     }
+}
+
+//All elements are removed from the front of the queue
+Node* dequeue(Queue* queuePtr){
+
+    if(queuePtr->front != NULL){
+        Node* front = queuePtr->front;
+        
+        queuePtr->front->previous->next = NULL;
+        queuePtr->front= queuePtr->front->previous;
+        front->next = NULL;
+        front-> previous = NULL;
+        return front;
+    } else {
+        return NULL;
+    }
+
 }
